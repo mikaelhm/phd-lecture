@@ -55,6 +55,9 @@ font-size: 0.8em;
 font-size: 0.9em;
 padding: 15px;
 }
+.hljs-default {
+padding: 1em 2em;
+}
 .inverse {
 background: #272822;
 color: #777872;
@@ -156,12 +159,16 @@ margin-top: 0;
 /* Two-column layout */
 .left-column {
 color: #777;
-width: 20%;
+width: 23%;
 height: 92%;
 float: left;
 }
 .left-column h2:last-of-type, .left-column h3:last-child {
   color: #000;
+}
+
+.left-column h3{
+  font-size: 1.6em;
 }
 .right-column, .right-column-cont{
 width: 75%;
@@ -169,12 +176,60 @@ float: right;
 }
 
 .right-column{
-padding-top: 2em;
+  padding-top: 2em;
+}
+
+.right-column .slide-title{
+font-family: Yanone Kaffeesatz;
+  font-size: 2.1em;
+  margin-top: -10px;
+}
+
+.mts-figure{
+  margin-top: 15px;
+  text-align: center;
+}
+.mts-figure img{
+    /*height: 82px;*/
+    width: 340px;
+}
+.figure{
+ text-align: center;
+}
+.car-wash-ex img{
+  width: 400px;
+}
+
+.car-wash-imp{
+  height: 210px;
+}
+
+.car-wash-imp img{
+  height: 158px;
+  display: inline;
+  margin-left: 30px;
+
+}
+
+.car-wash-imp img:nth-child(1){
+  height: 80px;
+}
+.car-wash-imp img:nth-child(2){
+  height: 140px;
+}
+
+.car-wash-imp img:nth-child(3){
+  height: 187px;
+}
+
+.ots-ex img{
+  height: 258px;
+
 }
 
 code.has-jax {
-font: inherit;
-font-size: 100%;
-background: inherit;
-border: inherit;
+  font: inherit;
+  font-size: 100%;
+  background: inherit;
+  border: inherit;
 }
