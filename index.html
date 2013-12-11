@@ -291,7 +291,7 @@ layout: false
 ### Disjunctive MTS
 ]
 .right-column[
-Several extentions of MTS have been introduced to address these problems. Disjunctive MTS is one of them.
+Several extensions of MTS have been introduced to address these problems. **Disjunctive Modal Transition System** is one of them.
 .figure[
 .car-wash-ex[
 ![x](images/tikz-8.png)
@@ -319,7 +319,7 @@ layout: false
 ### Transition System with Obligations
 ]
 .right-column[
-Several extentions of MTS have been introduced to address these problems. Disjunctive MTS is one of them, which have *disjuctive arcs*.
+Another extension is the **Transition Systems with Obligations**, where modalities are expressed by positive *logic obligations*.
 .figure[
 .ots-ex[
 ![x](images/tikz-10.png)
@@ -332,12 +332,79 @@ template:ots-ex
 .figure[
 .car-wash-imp[
 ![x](images/tikz-9.png)
-![x](images/tikz-11.png)
+![x](images/tikz-5.png)
 ![x](images/tikz-7.png)
 ]
 ]
 ]
-
+---
+name:bmts-ex
+layout: false
+.left-column[
+### Modal Transition Systems
+### Problems with MTS
+### Disjunctive MTS
+### Transition System with Obligations
+### Boolean MTS
+]
+.right-column[
+This gave us the initial idea to define **Boolean Modal Transition Systems**. Where we allow arbitrary satisfiable boolean formulas.
+.figure[
+.ots-ex[
+![x](images/tikz-12.png)
+]
+]
+]
+---
+template:bmts-ex
+.right-column[
+.figure[
+.car-wash-imp[
+![x](images/tikz-9.png)
+![x](images/tikz-11.png)
+![x](images/tikz-7.png)
+]
+]
+]---
+name:pmts-ex
+layout: false
+.left-column[
+### Modal Transition Systems
+### Problems with MTS
+### Disjunctive MTS
+### Transition System with Obligations
+### Boolean MTS
+### Parametric BMTS
+]
+.right-column[
+In order to model persistence we add a set of *parameters* that can be used in the obligation functions.
+.figure[
+.ots-ex[
+![x](images/tikz-13.png)
+]
+]
+]
+---
+template:pmts-ex
+.right-column[
+.figure[
+.car-wash-imp[
+![x](images/tikz-9.png)
+![x](images/tikz-11.png)
+![x](images/tikz-14.png)
+]
+]
+]
+---
+template:pmts-ex
+.right-column[
+.figure[
+.car-wash-imp-good[
+![x](images/tikz-15.png)
+![x](images/tikz-16.png)
+]
+]
+]
 ---
 Present Parametriced MTS on example
 ---

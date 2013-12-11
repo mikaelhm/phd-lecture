@@ -224,8 +224,15 @@ font-family: Yanone Kaffeesatz;
 
 .ots-ex img{
   height: 258px;
+}
+
+.car-wash-imp-good img{
+  height: 158px;
+  display: inline;
+  margin-left: 30px;
 
 }
+
 
 code.has-jax {
   font: inherit;
