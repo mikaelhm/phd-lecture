@@ -474,24 +474,87 @@ layout: false
 .right-column[
 Furthermore, we define a new requirement logic for PMTS, that can determine for which parameters the model will met the requirement. 
 
+&nbsp;
+
+.illustration-mid[
+  ![x](images/tikz-13.png)
+]
+
+&nbsp;
+
 **Must** always perform a car wash:
 $$ \langle \mathtt{wash} \rangle \mathbf{tt} $$
+<!-- Holds for $\{\mathtt{gold}\}$ and $\emptyset$. -->
 
 **Must** always wax car after **any** car wash:
 $$ \[\mathtt{wash}\] \langle \mathtt{wax} \rangle \mathbf{tt} $$
+<!-- Holds for $\{ \mathtt{gold} \}$ -->
 
 
-.illustration[
-  ![x](images/tikz-13.png)
-]
 ]  
 ???
 We define a new logic for PMTS to do this based on Hennesy Milner Logic with Recursion.
 ---
+template:inverse
 
+## But how much does a car wash cost?
+---
+layout:false
+.left-column[
+### Time and Cost
+]
+.right-column[
+We extended the MTS model with time and cost and thereby reason about the investment cost in the system, but also the average running cost.
+
+ - Add stepwise refineable **time duration intervals** to transitions, and
+    
+ - a price scheme, with **hardware requirements**, **hardware cost** and **running expences** of the different transitions.
+
+The goal is then to decide if there is an implementation within a given budget.
+]
+---
+name:bmts-cost
+layout:true
+.left-column[
+### Time and Cost
+### Durations
+]
+---
+template:bmts-cost
+.right-column[
+.illustration-mid[
+  ![x](images/tikz-12.png)
+]
+]
+---
+name:bmts-cost2
+template:bmts-cost
+.right-column[
+.illustration-mid[
+  ![x](images/tikz-17.png)
+]
+
+- $[1,2]$ is an **uncontrollable** interval
+
+- $\langle 1,4 \rangle$ is a **controllable** interval, that can be refined. 
+]
+---
+name:bmts-cost2
+template:bmts-cost
+.right-column[
+.illustration-mid[
+  ![x](images/tikz-17.png)
+]
+
+- $[1,2]$ is an **uncontrollable** interval
+
+- $\langle 1,4 \rangle$ is a **controllable** interval, that can be refined. 
+
+- $\langle 1,4 \rangle \quad \geq \quad \langle 2,4 \rangle \quad \geq \quad [2,4]$. 
+]
+---
 name: last-page
 template: inverse
-
 ## That's all folks (for now)!
 
 Slideshow created using [remark](http://github.com/gnab/remark).

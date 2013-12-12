@@ -23,9 +23,17 @@ bottom: 3em;
 width: 610px;
 position: absolute;
 bottom: 3em;
+}
+
+.illustration-mid{
+  margin: 10px;
+}
+
+.illustration, .illustration-mid{
 text-align: center;
 }
-.illustration img{
+
+.illustration img, .illustration-mid img{
 width:500px;
 }
 li p { line-height: 1.5em; }
