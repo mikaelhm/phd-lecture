@@ -256,6 +256,8 @@ template:mts
 ![x](images/tikz-2.png)
 ]
 ]
+???
+Implementation LTS
 ---
 name:mts-prob
 layout: false
@@ -413,19 +415,24 @@ template:pmts-ex
 .right-column[
 .definition[
 # Definition
-A **parametric MTS** (PMTS) over an action alphabet $\Sigma$ is 
+A *parametric MTS (PMTS) over an action alphabet $\Sigma$ is 
 a tuple $(S,T,P,\Phi)$ where
 
-- $S$ is a set of *states*
-- $T \subseteq S \times \Sigma \times S$ is a *transition relation*, 
+- $S$ is a set of **states**
+- $T \subseteq S \times \Sigma \times S$ is a **transition relation**, 
 - $P$ is a finite set of parameters, and
-- $\Phi : S \to \mathcal B((\Sigma \times S) \cup P)$ is a satisfiable *obligation function* over the atomic propositions containing 
+- $\Phi : S \to \mathcal B((\Sigma \times S) \cup P)$ is a satisfiable **obligation function** over the atomic propositions containing 
 outgoing transitions and parameters. 
 
 We implicitly assume that whenever $(a,t) \in \Phi(s)$ then 
 $(s,a,t) \in T$.
 ]
+&nbsp;
+
+Note: MTS, DMTS, OMTS and BMTS are all subclases of PMTS.
 ]
+
+
 ---
 name:pmts-ex-good
 layout: false
@@ -545,13 +552,17 @@ template:bmts-cost
 .right-column[
 BMTS specification with durations:
 .illustration-mid[
-  ![x](images/tikz-18.png)
+  ![x](images/tikz-17.png)
 ]
 
 - $[1,2]$ is an **uncontrollable** interval
 
 - $\langle 1,4 \rangle$ is a **controllable** interval, that can be refined. 
 $\langle 1,4 \rangle \quad \geq \quad \langle 2,4 \rangle \quad \geq \quad [2,4]$. 
+
+.illustration-mid[
+  ![x](images/tikz-18.png)
+]
 ]
 ???
 Uncontrollable like must, cannot be refined
@@ -574,7 +585,499 @@ Price Scheme:
  .illustration-mid[
   ![x](images/tikz-19.png)
 ]
+Investment cost (gold) = 150.
+Running cost: either 50 or 150.
 ]
+---
+layout:false
+.left-column[
+### Time and Cost
+### Durations
+### Price Scheme
+### Cost
+]
+.right-column[
+Specification and Price Scheme:
+.illustration-half[
+  ![x](images/tikz-17.png)
+  ![x](images/tikz-19.png)
+]
+
+Implementation and cost:
+
+
+.cost-img[
+  ![x](images/tikz-20.png)
+]
+.cost[
+Investment Cost $= 50$
+
+Running Cost $= \frac{2 \cdot 10 + 2\cdot 10}{2+2} = 10$
+]
+.cost-img[
+  ![x](images/tikz-21.png)
+]
+.cost[
+Investment Cost $= 150$
+
+Running Cost $= \frac{2 \cdot 10 + 4 \cdot 5 + 2\cdot 10}{2+4+2} = 7.5$
+]
+]
+
+---
+layout:false
+.left-column[
+### Time and Cost
+### Durations
+### Price Scheme
+### Cost
+### Problem
+]
+.right-column[
+.definition[
+# Decision Problem
+- Given an BMTS with durations specification $S$,
+- a dual-price scheme,
+- an upper-bound $\mathtt{max_{investment}}$ for the investment cost and
+- an upper bound $\mathtt{max_{running}}$ on the running cost,
+
+does there exist an implementation $I \leq S$ such that 
+
+- investment cost of I $ \leq \mathtt{max_{investment}}$ and
+- running cost of I $\leq \mathtt{max_{running}}$.
+]
+
+&nbsp;
+
+.result[
+# Result
+We prove that the decision problem is an NP-complete problem.
+]
+]
+---
+name: last-page
+template: inverse
+## How about the components mentioned in your title?
+---
+layout: false
+.left-column[
+###Component-based Design
+]
+.right-column[
+Component-based development is a popular method when designing software systems, as it is a method that has many advantages.
+
+- Separation of concern.
+
+- Reuse-ability is high.
+
+- Collaborative implementation
+
+- Consists of simpler components.
+]
+.illustration[*insert module figure*]
+???
+- Also beneficial from a formal verification perspective.
+---
+layout: false
+.left-column[
+###Component-based Design
+]
+.right-column[
+In component-based systems is it important that the composition of modules is correct. Meaning that the components fit together such that they can communicate properly.
+
+- E.g. for synchronising components.
+
+- Communication can be synchronous or asynchronous. 
+
+- Different choice of medium stack, FIFO or pool of messages. 
+
+- Analysis of communication is important to avoid errors 
+
+- Decidable communication properties would be nice to have
+
+.illustration[*insert communication figure*]
+]
+
+---
+name:composition
+layout: false
+.left-column[
+### Component-based Design
+### Composition
+]
+.right-column[
+    There are mainly two types of composition, synchronous and asynchronous.
+
+.center[<img src="images/component-tikz-0.png" alt="Drawing" style="width: 300px"/>]
+]
+---
+template:composition
+.right-column-cont[
+Syncronous composition:<br>
+<img src="images/component-tikz-2.png" alt="Drawing" style="width: 160px;margin-right: 40px;margin-left:20px;margin-top: 30px;"/>
+]
+---
+template:composition
+.right-column-cont[
+Syncronous composition: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Asyncronous composition:
+<img src="images/component-tikz-2.png" alt="Drawing" style="width: 160px;margin-right: 40px;margin-left:20px;margin-top: 30px;"/><img src="images/component-tikz-3.png" alt="Drawing" style="width: 400px;"/>
+]
+???
+Channel is a infinite pool of messages;
+Could also be a FIFO buffer or Lossy Channel
+---
+template: inverse
+## So what can one say about the communication. 
+---
+
+layout:false
+.left-column[
+### Component-based Design
+### Composition
+### Communication Properties
+]
+
+.right-column[
+Communication properties specifies certain requirements of the communication between components.
+
+- Specified reception [1983, Brand, Zafiropulo] 
+
+- Compatibility [2005, Alfaro, Henzinger] 
+
+- Buffered Compatibility [2010, Hennicker et al.]
+
+.illustration[
+    *Insert miscommunication figure*
+]
+]
+
+???
+**Specified Reception**
+All input must be handled in all states
+
+**Compatibility**
+Sync, recv must be ready when sender can send.
+
+**Buffered Compatibility**
+Adapted to async, any message on a channel must eventually be taken.
+
+Only considered for finite systems.
+---
+template: inverse
+## So did you go infinite, and how? 
+---
+name:petri
+layout:true
+.left-column[
+### Petri Nets
+]
+.right-column[
+*Labelled Petri Nets* is a specification formalism, that with a finite representation can express an infinite state system.
+]
+---
+template:petri
+.right-column[
+
+.center[
+<img src="images/component-tikz-4.png" alt="Drawing" style="width: 250px;"/>
+]
+]
+
+???
+Finite directed graph
+Places, Transitions, Arcs
+---
+template:petri
+.right-column[
+
+.center[
+<img src="images/component-tikz-5.png" alt="Drawing" style="width: 250px;"/>
+]
+
+Trace:
+.trace[
+    $m_0$
+]
+]
+
+???
+Tokens distributed, marking
+enabling transitions
+Initial marking.
+---
+template:petri
+.right-column[
+
+.center[
+<img src="images/component-tikz-6.png" alt="Drawing" style="width: 250px;"/>
+]
+
+Trace:
+.trace[
+    $m_0 \xrightarrow{b} m_1$
+]
+]
+
+???
+---
+template:petri
+.right-column[
+
+.center[
+<img src="images/component-tikz-5.png" alt="Drawing" style="width: 250px;"/>
+]
+
+Trace:
+.trace[
+    $m_0 \xrightarrow{b} m_1 \xrightarrow{c} m_2$
+]
+
+
+]
+
+???
+
+Note that $m_2 = m_1$.
+---
+template:petri
+.right-column[
+
+.center[
+<img src="images/component-tikz-7.png" alt="Drawing" style="width: 250px;"/>
+]
+
+Trace:
+.trace[
+    $m_0 \xrightarrow{b} m_1 \xrightarrow{c} m_2 \xrightarrow{a} m_3$
+]
+]
+---
+name:aiopn
+layout:true
+.left-column[
+### Petri Nets
+### Asynchronous I/O Petri Nets
+]
+.right-column[
+Our goal is to study general properties of asynchronous communication. Therefore we define *Asynchronous I/O Petri Nets*.
+
+]
+---
+template:aiopn
+.right-column[
+Two primitive components before composition:
+.center[
+<img src="images/component-tikz-8.png" alt="Drawing" style="width: 500px;"/>
+]
+
+Their underlying state space:
+
+.center[
+<img src="images/component-tikz-0.png" alt="Drawing" style="width: 300px"/>
+]
+
+]
+
+???
+
+
+---
+template:aiopn
+.right-column[
+Two primitive components *after* composition:
+.center[
+<img src="images/component-tikz-9.png" alt="Drawing" style="width: 500px;"/>
+]
+
+Its underlying state space:
+
+.center[
+<img src="images/component-tikz-3.png" alt="Drawing" style="width: 500px"/>
+]
+
+]
+
+???
+Related to Open Petri Nets
+Interleaving semantics (vs. unfolding/branching)
+
+---
+template:false
+layout:false
+.left-column[
+### Petri Nets
+### Asynchronous I/O Petri Nets
+]
+.right-column[
+.definition[
+# Definition
+An *asynchronous I/O-Petri net* (AIOPN) is a tuple $\mathcal{M} =  (\mathcal{N}, \mathcal{C}, \Sigma$) such that 
+
+- $\mathcal{N}$ is a **labelled Petri net** with places $P$ and transitions $T$,  
+- $\mathcal{C}$ is a finite set of **channels**, 
+- $\mathcal{C} \subseteq P$, i.e. each channel is a place, 
+- $\Sigma = \mathsf{in} \uplus \mathsf{out} \uplus \mathsf{com} $ is an **I/O-alphabet** over $\mathcal{C}$, 
+- for all $a \in \mathcal{C}$ and $t \in T$,
+
+    $$W^-(a,t) = \begin{cases} 1 &\text{ if } \lambda(t) = ~^\rhd a,
+ \\\0 &\text{ otherwise } \end{cases}$$
+    $$W^+(a,t) = \begin{cases} 1 &\text{ if } \lambda(t) = a^\rhd,\\\
+     0  &\text{ otherwise} \end{cases}$$
+
+- for all $a \in \mathcal{C}$, $m^0(a) = 0$.
+]
+]
+
+???
+Primitive components C is empty and com is empty
+---
+.left-column[
+### Petri Nets
+### Asynchronous I/O Petri Nets
+### Channel Consuming
+]
+.right-column[
+.definition[
+#Definition
+An AIOPN is *Consuming* if there are some messages on a channel $c$, then we can **autonomously** reach a marking where $\xrightarrow{~^\rhd c}$.
+]
+&nbsp;
+.center[
+<img src="images/component-tikz-10.png" alt="Drawing" style="width: 500px;"/>
+]
+] 
+???
+Simplest
+Consuming - possible that it eventually can take it,
+Autonomous - Means without input from environment
+---
+.left-column[
+### Petri Nets
+### Asynchronous I/O Petri Nets
+### Channel Consuming
+### Strongly Consuming
+]
+.right-column[
+.definition[
+#Definition
+An AIOPN is *Strongly Consuming* if there are some messages on a channel $c$, then we can <strike>autonomously reach a marking where</strike> **immediately** $\xrightarrow{~^\rhd c}$.
+]
+&nbsp;
+.center[
+<img src="images/component-tikz-10.png" alt="Drawing" style="width: 500px;"/>
+]
+] 
+???
+Strong Consuming - must take it NOW, not the case for example
+---
+.left-column[
+### Petri Nets
+### Asynchronous I/O Petri Nets
+### Channel Consuming
+### Strongly Consuming
+### Necessarily Consuming
+]
+.right-column[
+.definition[
+#Definition
+An AIOPN is *Necessarily Consuming* if there are some messages on a channel $c$, then **on all weakly fair runs** we can autonomously reach a marking where $\xrightarrow{~^\rhd c}$.
+]
+&nbsp;
+.center[
+<img src="images/component-tikz-10.png" alt="Drawing" style="width: 500px;"/>
+]
+] 
+???
+Necessarily Consuming - All weak fair runs
+
+Weak fair, always enabled must be taken infinitely often.
+---
+.left-column[
+### Petri Nets
+### Asynchronous I/O Petri Nets
+### Channel Consuming
+### Strongly Consuming
+### Necessarily Consuming
+### All Properties
+]
+.right-column[
+We have developed a set of 14 channel properties.
+
+&nbsp;
+.center[
+<img src="images/prop-rel.png" alt="Drawing" style="width: 600px;"/>
+]
+
+We prove all properties are decidable. 
+
+Our proofs rely on:
+
+ - appropriate transformation of nets, 
+ - decidability of reachability and home space problems,
+ - effective backward analysis for upward closed marking sets, 
+ - decidability of weak fairness.
+]
+
+???
+Will not say much here, we used combination of known techniques.
+---
+name:incremental-d
+layout:true
+.left-column[
+### Asynchronous I/O Petri Nets
+### Channel Consuming
+### Strongly Consuming
+### Necessarily Consuming
+### All Properties
+### Incremental Design
+]
+.right-column[
+    We prove that these channel properties can be utilized in an incremental design.
+]
+---
+template:incremental-d
+.right-column[
+.incremental[
+.center[
+    <img src="images/components-beamer-tikz-0.png" alt="">
+]
+]
+]
+???
+---
+template:incremental-d
+.right-column[
+.incremental[
+.center[
+    <img src="images/components-beamer-tikz-1.png" alt="">
+]
+]
+]
+???
+---
+template:incremental-d
+.right-column[
+.incremental[
+.center[
+    <img src="images/components-beamer-tikz-2.png" alt="">
+]
+]
+.result[
+#Result
+Let $\pnN$ and $\M$ be two composable AIOPNs with shared actions 
+$\Sigma\_\pnN \cap \Sigma\_\M$
+and let  $P$ be an arbitrary channel property but wholly emptying.
+
+
+If both $\pnN$ and $\M$ have property $P$ and if $\pnN \oplus\_{pn} \M$ 
+has property $P$ with respect to the new channels $\Sigma\_\pnN \cap \Sigma\_\M$, then $\pnN \oplus\_{pn} \M$ has property $P$.
+]
+]
+???
+---
+name: last-page
+template: inverse
+## But what about the modalities, did we loose them?
 ---
 name: last-page
 template: inverse
@@ -600,7 +1103,15 @@ MathJax.Hub.Config({
 tex2jax: {
 skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
 inlineMath: [['$','$'], ['\\(','\\)']]
-}
+},
+TeX: { 
+        Macros: { 
+            pnN: "\\mathcal{N}", 
+            M: "\\mathcal{M}", 
+            act: "~^{\rhd}", 
+            Z: "\\mathbb{Z}" 
+        } 
+    } 
 });
 MathJax.Hub.Queue(function() {
 $(MathJax.Hub.getAllJax()).map(function(index, elem) {
