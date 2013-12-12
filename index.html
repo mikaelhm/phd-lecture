@@ -261,7 +261,6 @@ name:mts-prob
 layout: false
 .left-column[
 ### Modal Transition Systems
-### Problems with MTS
 ]
 .right-column[
 MTSs are not always precise enough. They allow too many implements as *valid* implementations.
@@ -287,7 +286,6 @@ name:dmts
 layout: false
 .left-column[
 ### Modal Transition Systems
-### Problems with MTS
 ### Disjunctive MTS
 ]
 .right-column[
@@ -314,7 +312,6 @@ name:ots-ex
 layout: false
 .left-column[
 ### Modal Transition Systems
-### Problems with MTS
 ### Disjunctive MTS
 ### Transition System with Obligations
 ]
@@ -326,6 +323,10 @@ Another extension is the **Transition Systems with Obligations**, where modaliti
 ]
 ]
 ]
+???
+Only one transition relation.
+
+We still draw must arrows as solid lines
 ---
 template:ots-ex
 .right-column[
@@ -338,17 +339,21 @@ template:ots-ex
 ]
 ]
 ---
+name: last-page
+template: inverse
+
+## So what did you do to fix this?
+---
 name:bmts-ex
 layout: false
 .left-column[
 ### Modal Transition Systems
-### Problems with MTS
 ### Disjunctive MTS
 ### Transition System with Obligations
 ### Boolean MTS
 ]
 .right-column[
-This gave us the initial idea to define **Boolean Modal Transition Systems**. Where we allow arbitrary satisfiable boolean formulas.
+We started by defining **Boolean Modal Transition Systems** a simple extension of OTS. Where we allow arbitrary satisfiable boolean formulas.
 .figure[
 .ots-ex[
 ![x](images/tikz-12.png)
@@ -365,16 +370,16 @@ template:bmts-ex
 ![x](images/tikz-7.png)
 ]
 ]
-]---
+]
+---
 name:pmts-ex
 layout: false
 .left-column[
 ### Modal Transition Systems
-### Problems with MTS
 ### Disjunctive MTS
 ### Transition System with Obligations
 ### Boolean MTS
-### Parametric BMTS
+### Parametric MTS
 ]
 .right-column[
 In order to model persistence we add a set of *parameters* that can be used in the obligation functions.
@@ -384,6 +389,8 @@ In order to model persistence we add a set of *parameters* that can be used in t
 ]
 ]
 ]
+???
+Paremeters can be seen as a switch you can turn on or off.
 ---
 template:pmts-ex
 .right-column[
@@ -396,8 +403,53 @@ template:pmts-ex
 ]
 ]
 ---
-template:pmts-ex
+.left-column[
+### Modal Transition Systems
+### Disjunctive MTS
+### Transition System with Obligations
+### Boolean MTS
+### Parametric MTS
+]
 .right-column[
+.definition[
+# Definition
+A **parametric MTS** (PMTS) over an action alphabet $\Sigma$ is 
+a tuple $(S,T,P,\Phi)$ where
+
+- $S$ is a set of *states*
+- $T \subseteq S \times \Sigma \times S$ is a *transition relation*, 
+- $P$ is a finite set of parameters, and
+- $\Phi : S \to \mathcal B((\Sigma \times S) \cup P)$ is a satisfiable *obligation function* over the atomic propositions containing 
+outgoing transitions and parameters. 
+
+We implicitly assume that whenever $(a,t) \in \Phi(s)$ then 
+$(s,a,t) \in T$.
+]
+]
+---
+name:pmts-ex-good
+layout: false
+.left-column[
+### Modal Transition Systems
+### Disjunctive MTS
+### Transition System with Obligations
+### Boolean MTS
+### Parametric MTS
+### Modal Refinement
+
+]
+.right-column[
+Modal refinement is defined along the same lines as for standard MTS. 
+.figure[
+.ots-ex[
+![x](images/tikz-13.png)
+]
+]
+]
+---
+template:pmts-ex-good
+.right-column[
+These are the valid implementations:
 .figure[
 .car-wash-imp-good[
 ![x](images/tikz-15.png)
@@ -405,9 +457,38 @@ template:pmts-ex
 ]
 ]
 ]
+???
+Complexity of modal refinement from P-complete to Pi-p-4
 ---
-Present Parametriced MTS on example
+name:pmts-ex-good
+layout: false
+.left-column[
+### Modal Transition Systems
+### Disjunctive MTS
+### Transition System with Obligations
+### Boolean MTS
+### Parametric MTS
+### Modal Refinement
+### Logic for PMTS
+]
+.right-column[
+Furthermore, we define a new requirement logic for PMTS, that can determine for which parameters the model will met the requirement. 
+
+**Must** always perform a car wash:
+$$ \langle \mathtt{wash} \rangle \mathbf{tt} $$
+
+**Must** always wax car after **any** car wash:
+$$ \[\mathtt{wash}\] \langle \mathtt{wax} \rangle \mathbf{tt} $$
+
+
+.illustration[
+  ![x](images/tikz-13.png)
+]
+]  
+???
+We define a new logic for PMTS to do this based on Hennesy Milner Logic with Recursion.
 ---
+
 name: last-page
 template: inverse
 

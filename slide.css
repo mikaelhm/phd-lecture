@@ -20,8 +20,13 @@ position: absolute;
 bottom: 3em;
 }
 .illustration {
+width: 610px;
 position: absolute;
 bottom: 3em;
+text-align: center;
+}
+.illustration img{
+width:500px;
 }
 li p { line-height: 1.5em; }
 .red { color: #fa0000; }
@@ -231,6 +236,27 @@ font-family: Yanone Kaffeesatz;
   display: inline;
   margin-left: 30px;
 
+}
+
+.definition{
+  color: #DDD;
+  display: block;
+  padding: 0.5em;
+  background: #272822;
+  -moz-border-radius: 5px;
+  -web-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.definition h1{
+  margin-top: 0px;
+  color: #A6E22E;
+  font-size: 1.4em;
+}
+
+.definition em{
+  color: #F92672;
 }
 
 
