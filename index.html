@@ -1079,9 +1079,178 @@ name: last-page
 template: inverse
 ## But what about the modalities, did we loose them?
 ---
+layout:false
+.left-column[
+### All together
+]
+.right-column[
+Until now we been focused on two different formal models. We will now put it all together, and add some ingredients to reach our goal.
+
+Our goal is to have a formalism that support:
+
+- Infinite state systems → Petri nets
+
+- Loose specifications → modal transitions (may, must) 
+
+- Observational abstraction → hiding and $\tau$-transitions 
+
+- Refinement correctness → weak modal refinement
+
+- Communication correctness → channel properties
+
+- Decidability results → Petri nets
+
+- Modular and incremental verification
+]
+---
+name:maiopn
+layout:false
+.left-column[
+### All together
+### Modal AIOPNs
+]
+.right-column[
+We start by adding modalities to our Asynchronous I/O Petri Nets. 
+This is done simply by having may and must transitions
+&nbsp;
+
+.center[
+    <img src="images/component-tikz-11.png" alt="" style="width:200px">
+]
+]
+---
+template:maiopn
+.right-column-cont[
+
+&nbsp;
+We would like this to be a correct refinement.
+
+.center[
+    <img src="images/component-tikz-12.png" alt="" style="width:400px">
+]
+]
+---
+name:maiopn2
+layout:false
+.left-column[
+### All together
+### Modal AIOPNs
+### Hiding
+]
+.right-column[
+We need to encapsulate communication on internal channels. We do this by a hiding step.
+
+&nbsp;  
+.center[
+    <div style="width:530px;margin-left:50px;"><img src="images/component-tikz-12.png" alt="" style="width:210px;margin-right:10px;float:left;">
+    <div style="float:left; line-height: 150px;height: 150px;widht:10px"> Hiding →  </div>    <img src="images/component-tikz-13.png" alt="" style="float:left;width:200px;margin-left:20px;"></div>
+]
+]
+---
+template:false
+layout:false
+.left-column[
+### All together
+### Modal AIOPNs
+### Hiding
+### Weak Modal refinement
+]
+.right-column[
+We need to encapsulate communication on internal channels. We do this by a hiding step.
+
+&nbsp;  
+.center[
+    <div style="width:530px;margin-left:50px;"><img src="images/component-tikz-12.png" alt="" style="width:210px;margin-right:10px;float:left;">
+    <div style="float:left; line-height: 150px;height: 150px;widht:20px"> Hiding →  </div>    <img src="images/component-tikz-13.png" alt="" style="float:left;width:200px;margin-left:20px;"></div>
+]
+]
+.right-column[
+We now define a **weak modal refinement** that allow refinements to be *observatinal*. 
+.center[
+<div style="width:530px;margin-left:50px;">
+<img src="images/component-tikz-11.png" alt="" style="width:210px;margin-right:10px;float:left;">
+    <div style="float:left; line-height: 150px;height: 150px;widht:20px">$\Large \leq^*$ </div>    <img src="images/component-tikz-13.png" alt="" style="float:left;width:200px;margin-left:20px;">
+</div>
+]
+]
+---
+template:false
+layout:false
+.left-column[
+### All together
+### Modal AIOPNs
+### Hiding
+### Weak Modal refinement
+### Channel Properties
+]
+.right-column[
+In order to adapt the channel properties we defined earlier we need to take the modalities and internal actions into account.
+
+&nbsp;
+.definition[
+#Definition
+A Modal AIOPN is *Consuming* if there are some messages on a channel $c$, then we **must** be able to autonomously reach a marking where $\xrightarrow{~^\rhd c}$.
+]
+
+&nbsp;
+.illustration[
+    <img src="images/component-tikz-14.png" alt="">
+]
+]
+---
+template:false
+layout:false
+.left-column[
+### All together
+### Modal AIOPNs
+### Hiding
+### Weak Modal refinement
+### Channel Properties
+]
+.right-column[
+In order to adapt the channel properties we defined earlier we need to take the modalities and internal actions into account.
+
+&nbsp;
+.definition[
+#Definition
+A Modal AIOPN is *Necessarily Consuming* if there are some messages on a channel $c$, then on all **observarionally weakly fair runs** there we must go from on marking to another by $\xrightarrow{~^\rhd c}$.
+]
+
+&nbsp;
+.illustration[
+    <img src="images/component-tikz-14.png" alt="">
+]
+]
+???
+We only look at these to properties in this setting but believe that others will work as well.
+
+Both are deciadble for deterministic Nets.
+
+---
+template:false
+layout:false
+.left-column[
+### All together
+### Modal AIOPNs
+### Hiding
+### Weak Modal refinement
+### Channel Properties
+### Methodology
+]
+.right-column[
+With our *modal asynchronous I/O Petri nets* we have a reach our goal, and have a formalism that support the following development method.
+
+1. Define component interface.
+2. Define and compose sub-components.
+3. Prove that sub-components communicate correctly.
+4. Prove that composed sub-components refines interface.
+5. Refine sub-component with out breaking anything
+
+]
+---
 name: last-page
 template: inverse
-## That's all folks (for now)!
+## That's all folks!
 
 Slideshow created using [remark](http://github.com/gnab/remark).
 </textarea>
