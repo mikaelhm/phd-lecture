@@ -1,7 +1,10 @@
-@import url(http://fonts.googleapis.com/css?family=Droid+Serif);
+/*@import url(http://fonts.googleapis.com/css?family=Droid+Serif);
 @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
 @import url(http://fonts.googleapis.com/css?family=Tinos);
-
+*/
+@import url(droid.css);
+@import url(kaffe.css);
+@import url(tinos.css);
 body {
 font-family: 'Tinos';
 font-size: 20px;
@@ -102,6 +105,10 @@ text-shadow: 0 0 20px #333;
 color: #f3f3f3;
 line-height: 0.8em;
 }
+.inverse h1 em {
+  color: #BF79DB;
+}
+
 
 /* Slide-specific styling */
 #slide-inverse .footnote {
