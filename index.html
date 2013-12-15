@@ -21,7 +21,6 @@ class: center, middle, inverse
 ???
 - Thank you for intro.
 - Welcome, hourned that so many of you are here.
-- Hope you will not be too bored.
 - 4 parts, motivation, Modal, Component, joined
 ---
 # *Modal* and Component-Based *System Specifications*
@@ -53,11 +52,8 @@ layout: false
 Software is no longer just PC programs, and it has not been that for years.
 
 - It is controlling indoor climate,
-
 - helping you navigate in traffic,
-
 - securing and letting you access your home and
-
 - washing your clothes!
 .illustration[
 ![x](images/software-is-everywhere.png)
@@ -73,12 +69,10 @@ Software is no longer just PC programs, and it has not been that for years.
 ### Also in critical systems
 ]
 .right-column[
-Software is even something we need to trust with our lives, as it is also being used in safety-critical sytems.
+Software is even something we need to trust with our lives, as it is also being used in safety-critical systems.
 
 - Software is also used in space programs,
-
 - to steer and brake cars, trains, flights,
-
 - and to assist air traffic controllers.
 
 .illustration[
@@ -89,51 +83,23 @@ Software is even something we need to trust with our lives, as it is also being 
 Also in safety-critical systems.
 That help safe lives,
 if they work
----
-.left-column[
-### Software is everywhere
-### Also in critical systems
-### But it can still break down
-]
-.right-column[
-However, just as computer programs such systems might crash or fail.
-
-- Ariane 5 [1996] - exploded after 37 seconds.
-
-- Toyota Prius [2010] - 100.000+ needed an ABS update.
-
-- L.A. Air Route Traffic Control Center [2004] - lost all radio contact.
-
-.illustration[
-![x](images/also-in-critical-systems.png)
-]
-
-]
-???
-These are 3 concrete examples on failing systems.
-
-Now you might ask.
+They can fail.
 ---
 template: inverse
 
 ## What can we do about it?
 
 ???
-Thats why I am here :)
 ---
 .left-column[
 ### Formal Verification
 ]
 .right-column[
-Formal Verification is a class of techniques that can be used to prove the correctness of a system.
+Formal Verification is a class of techniques that can be used to prove the correctness of a system. It uses...
 
-Each of them relies on three components:
-
-- A formal specification of the system analysed.
-
-- A set of formal requirements for the system.
-
-- A mathematically-based method that can analyse the system and requirement.
+- a formal specification of the system analysed,
+- a set of formal requirements for the system and
+- a mathematically-based method that can analyse the system and requirement.
 
 .illustration[
 ![x](images/formal-verification.png)
@@ -153,7 +119,7 @@ name: model-check
 ### Model Checking
 ]
 .right-column[
-Model Checking is a formal verification method, that systematically will explore all possible configurations of a system model to verify that all of them meet the given requirements.
+A formal verification method, that systematically will explore all possible configurations of a system model.
 ].right-column-cont[
 .model[
 System
@@ -262,7 +228,7 @@ template: inverse
 ### Abstraction
 ]
 .right-column[
-Even simple systems can have a complex logic inside. Which makes model checking hard or impossible.
+Even simple systems can have a complex logic inside. 
 
 - Model Checking on a abstracted model.
 
@@ -278,6 +244,7 @@ Even simple systems can have a complex logic inside. Which makes model checking 
 ]
 ]
 ???
+First of all the examples are too complex.
 Complexity is a major problem in model checking.
 
 Even though programs are very precise they are too complex.
@@ -288,7 +255,7 @@ Remark MC does not guarantee anything
 
 Model closer to real system.
 
-Building in wind-tunnel earth quake (environment)
+OK to see if it stand by it self, but not used in wind-tunnel earth quake (environment)
 ---
 
 .left-column[
@@ -296,9 +263,9 @@ Building in wind-tunnel earth quake (environment)
 ### Applicability
 ]
 .right-column[
-For model checking to be really helpful it should be well integrated with system development processes.
+Our methods must fit system development processes.
 
-- Developing a formal system model can be time consuming.
+- Developing a system model can be time consuming.
 
 - System specifications evolve throughout the design process.
 
@@ -328,7 +295,7 @@ layout:true
 ### Modal Transition Systems
 ]
 .right-column[
-Modal Transition Systems *(MTS)* [LT88] is a modelling framework that is more suited for **model-based development**, as it supports **modal refinement**.
+Modal Transition Systems *(MTS)* [LT88], a modelling framework that aimed at **model-based development**.
 ]
 ---
 template:mts
@@ -382,7 +349,7 @@ layout: false
 ### Modal Transition Systems
 ]
 .right-column[
-MTSs are not always precise enough. They allow undesired implementations.
+However, they allow undesired implementations.
 .figure[
 .car-wash-ex[
 ![x](images/tikz-3.png)
@@ -418,7 +385,7 @@ layout: false
 ### Disjunctive MTS
 ]
 .right-column[
-Several extensions of MTS have been introduced to address these problems. **Disjunctive Modal Transition System** [LX90] is one of them.
+**Disjunctive Modal Transition System** [LX90].
 .figure[
 .car-wash-ex[
 ![x](images/tikz-8.png)
@@ -426,6 +393,7 @@ Several extensions of MTS have been introduced to address these problems. **Disj
 ]
 ]
 ???
+Several extensions of MTS have been introduced to address these problems
 Liu Xinxin Kim 1990 Disjunctive.
 
 At least one of these.
@@ -454,7 +422,7 @@ layout: false
 ### Transition System with Obligations
 ]
 .right-column[
-Another extension is the **Transition Systems with Obligations** (OTS) [BK11], where modalities are expressed by positive *logic obligations*.
+**Transition Systems with Obligations** (OTS) [BK11].
 .figure[
 .ots-ex[
 ![x](images/tikz-10.png)
@@ -462,6 +430,8 @@ Another extension is the **Transition Systems with Obligations** (OTS) [BK11], w
 ]
 ]
 ???
+Another one OTS
+, where modalities are expressed by positive *logic obligations*.
 Only one transition relation.
 
 Modalities describe by outgoing transitions formulas on states.
@@ -498,7 +468,7 @@ layout: false
 ### Boolean MTS
 ]
 .right-column[
-We started by defining **Boolean Modal Transition Systems** a simple extension of OTS. Where we allow arbitrary satisfiable boolean formulas.
+**Boolean Modal Transition Systems** based on OTS. With arbitrary satisfiable boolean formulas.
 .figure[
 .ots-ex[
 ![x](images/tikz-12.png)
@@ -511,7 +481,7 @@ Inspired by OTS we define Boolean MTS. Arbitrary formulas
 allows us to express exclusiveness (oplus is either or)
 ---
 template:bmts-ex
-.right-column[
+.right-column-cont[
 .figure[
 .car-wash-imp[
 ![x](images/tikz-9.png)
@@ -533,7 +503,7 @@ layout: false
 ### Parametric MTS
 ]
 .right-column[
-In order to model persistence we add a set of *parameters* that can be used in the obligation functions.
+**Parametric Modal Transition Systems** (PMTS), extend BTMS with a set of *parameters*.
 .figure[
 .ots-ex[
 ![x](images/tikz-13.png)
@@ -598,7 +568,7 @@ layout: false
 
 ]
 .right-column[
-Modal refinement is defined along the same lines as for standard MTS.
+Modal refinement for PMTS, just as for standard MTS.
 .figure[
 .ots-ex[
 ![x](images/tikz-13.png)
@@ -638,7 +608,7 @@ layout: false
 .right-column[
 .definition[
 # Problem
-Given two BMTS specifications $S$ and $T$. Does it hold that
+Given two PMTS specifications $S$ and $T$. Does it hold that
 $$ S \leq T .$$
 ]
 
@@ -667,8 +637,7 @@ layout: false
 ### Logic for PMTS
 ]
 .right-column[
-Furthermore, we define a new requirement logic for PMTS, that can determine for which parameters the model will met the requirement.
-
+How to determine the value of the parameters for a given requirement.
 &nbsp;
 
 .illustration-mid[
@@ -677,14 +646,13 @@ Furthermore, we define a new requirement logic for PMTS, that can determine for 
 
 &nbsp;
 
-**Must** always perform a car wash:
+**Must** be able to perform a car wash:
 $$ \langle \mathtt{wash} \rangle \mathbf{tt} $$
 <!-- Holds for $\{\mathtt{gold}\}$ and $\emptyset$. -->
 
-**Must** always wax car after **any** car wash:
+**Must** be able to wax car after **a** car wash:
 $$ \[\mathtt{wash}\] \langle \mathtt{wax} \rangle \mathbf{tt} $$
 <!-- Holds for $\{ \mathtt{gold} \}$ -->
-
 
 ]
 ???
@@ -693,13 +661,29 @@ We define a new logic for PMTS to do this based on Hennesy Milner Logic with Rec
 1. Holds for any subset of par
 2. holds if gold is true.
 
+---
+name: last
+class: inverse, sum
+.modal[
+# *Modal* 
+## system specifications
+
+- Boolean MTS
+- Parametric MTS
+- Modal refinement 
+- Logic for PMTS
+]
+
+???
 Summerize
 - Boolean MTS
 - PMTS
 - Modal Refinement
 - Complexity of MR
 - Logic for PMTS.
+
 ---
+
 template:inverse
 
 ## But how much does a car wash cost?
@@ -716,14 +700,11 @@ layout:false
 ### Time and Cost
 ]
 .right-column[
-We extended the MTS model with time and cost and thereby reason about the investment cost in the system, but also the average running cost.
+Time and cost quantities are need to reason about it.
 
-We introduce the following:
+ - Stepwise refineable **time duration intervals** on transitions.
 
- - a price scheme, with **hardware requirements**, **hardware cost** and **running expences** of the different transitions, and
-
- - stepwise refineable **time duration intervals** on transitions.
-
+ - A price scheme, with **hardware requirements**, **hardware cost** and **running expences** of the different transitions, and
 
 
 The goal is then to decide if there is an implementation within a given budget.
@@ -776,13 +757,14 @@ BMTS specification with durations:
 - $[1,2]$ is an **uncontrollable** interval
 
 - $\langle 1,4 \rangle$ is a **controllable** interval, that can be refined.
-$\langle 1,4 \rangle \quad \geq \quad \langle 2,4 \rangle \quad \geq \quad [2,4]$.
 
 .illustration-mid[
   ![x](images/tikz-18.png)
 ]
 ]
 ???
+$\langle 1,4 \rangle \quad \geq \quad \langle 2,4 \rangle \quad \geq \quad [2,4]$.
+
 Uncontrollable like must, cannot be refined
 ---
 name:bmts-cost2
@@ -815,15 +797,11 @@ layout:false
 ### Cost
 ]
 .right-column[
-Specification and Price Scheme:
-.illustration-half[
-  ![x](images/tikz-17.png)
+Price Scheme:
+.illustration-mid[
   ![x](images/tikz-19.png)
 ]
-
-Implementation and cost:
-
-
+Implementation cost and running cost:
 .cost-img[
   ![x](images/tikz-20.png)
 ]
@@ -859,18 +837,17 @@ layout:false
 .right-column[
 .definition[
 # Decision Problem
-- Given an BMTS with durations specification $S$,
-- a dual-price scheme,
-- an upper-bound $\mathtt{max_{investment}}$ for the investment cost and
-- an upper bound $\mathtt{max_{running}}$ on the running cost,
+Given an BMTS with durations specification $S$,
+a dual-price scheme, and a budget:
+
+- $\mathtt{max\_{investment}}$
+- $\mathtt{max\_{running}}$.
 
 does there exist an implementation $I \leq S$ such that
 
-- investment cost of I $ \leq \mathtt{max_{investment}}$ and
-- running cost of I $\leq \mathtt{max_{running}}$.
+- investment cost of I $ \leq \mathtt{max\_{investment}}$ and
+- running cost of I $\leq \mathtt{max\_{running}}$.
 ]
-
-&nbsp;
 
 .result[
 # Result
@@ -883,12 +860,25 @@ Interesting problem is there a solution we can afford given a budget.
 Prove that it is a NP-complete problem.
 
 Special-case pseudo polynomial algorithm.
+---
+name: last
+class: inverse, sum
+.modal[
+# *Modal* 
+## system specifications
 
+- Boolean MTS
+- Parametric MTS
+- Modal refinement 
+- Logic for PMTS
+- *Time and cost*
+]
+???
 Summarize?
 ---
 name: last-page
 template: inverse
-## How about the components mentioned in your title?
+## How about the components you mentioned?
 
 ???
 Goes into the 3. part, talked about Motivation, Modal Specifications.
@@ -900,7 +890,7 @@ layout: false
 ###Component-based Design
 ]
 .right-column[
-Component-based development is a popular method when designing software systems, as it is a method that has many advantages.
+Component-based development is a popular method with many advantages.
 
 - Separation of concern.
 
@@ -910,16 +900,18 @@ Component-based development is a popular method when designing software systems,
 
 - Consists of simpler components.
 
-Correct composition of the modules is important. Communication between components must be correct.
+**But**, correct composition of the modules is important. 
 
 ]
-.illustration[*insert module figure*]
 ???
+
 Component-based is good, for several reasons.
 
 - Also beneficial from a formal verification perspective.
 
 Correct Composition is IMPORTANT.
+Communication between components must be correct.
+
 As this is way the composed system will operate.
 ---
 name:composition
@@ -930,7 +922,7 @@ layout: false
 ]
 
 .right-column[
-    There are mainly two types of composition, synchronous and asynchronous.
+    Two types of composition: synchronous and asynchronous.
 
 .center[<img src="images/component-tikz-0.png" alt="Drawing" style="width: 300px"/>]
 
@@ -961,8 +953,14 @@ Msg is now internal
 ---
 template:composition
 .right-column-cont[
-Syncronous composition: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Asyncronous composition:
-<img src="images/component-tikz-2.png" alt="Drawing" style="width: 160px;margin-right: 40px;margin-left:20px;margin-top: 30px;"/><img src="images/component-tikz-3.png" alt="Drawing" style="width: 400px;"/>
+Synchronous: 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Asynchronous:
+
+<img src="images/component-tikz-2.png" alt="Drawing" style="width: 160px;margin-right: 36px;margin-left:10px;margin-top: 30px;"/><img src="images/component-tikz-3.png" alt="Drawing" style="width: 400px;"/>
 ]
 ???
 Async, message is left on a channel for later reception by other component.
@@ -985,7 +983,7 @@ layout:false
 ]
 
 .right-column[
-Communication properties specifies certain requirements of the communication between components.
+Previously studied communication properties
 
 - Specified reception [1983, Brand, Zafiropulo]
 
@@ -993,9 +991,6 @@ Communication properties specifies certain requirements of the communication bet
 
 - Buffered Compatibility [2010, Hennicker et al.]
 
-.illustration[
-    *Insert miscommunication figure*
-]
 ]
 
 ???
@@ -1111,7 +1106,7 @@ layout:true
 ### Asynchronous I/O Petri Nets
 ]
 .right-column[
-Our goal is to study general properties of asynchronous communication. Therefore we define *Asynchronous I/O Petri Nets*.
+We study general properties of asynchronous communication on *Asynchronous I/O Petri Nets*.
 
 ]
 ---
@@ -1131,7 +1126,7 @@ Their underlying state space:
 ]
 
 ???
-We add I/O labels to petri nets to define componenet interface.
+We add I/O labels to Petri nets to define componenet interface.
 
 Two primitive components, meaning that no communication is going on inside.
 
@@ -1159,7 +1154,7 @@ Composition:
 
 Related to Open Petri Nets
 Interleaving semantics (vs. unfolding/branching)
-other limmited support finite state systems.
+other limited support finite state systems.
 
 Now start to analyse channels
 ---
@@ -1176,7 +1171,7 @@ An AIOPN is *Consuming* if there are some messages on a channel $c$, then we can
 ]
 &nbsp;
 .center[
-<img src="images/component-tikz-10.png" alt="Drawing" style="width: 500px;"/>
+<img src="images/component-tikz-10.png" alt="Drawing" style="width: 603px;"/>
 ]
 ]
 ???
@@ -1198,7 +1193,7 @@ An AIOPN is *Necessarily Consuming* if there are some messages on a channel $c$,
 ]
 &nbsp;
 .center[
-<img src="images/component-tikz-10.png" alt="Drawing" style="width: 500px;"/>
+<img src="images/component-tikz-10.png" alt="Drawing" style="width: 603px;"/>
 ]
 ]
 ???
@@ -1216,12 +1211,19 @@ Weak fair, always enabled must be taken infinitely often.
 .right-column[
 We have developed a set of 14 channel properties.
 
-&nbsp;
 .center[
-<img src="images/prop-rel.png" alt="Drawing" style="width: 600px;"/>
+<img src="images/prop-rel.png" alt="Drawing" style="width: 630px;margin-top: 15px;"/>
 ]
 
-We prove all properties are decidable.
+&nbsp;
+
+All properties are **decidable**. Proved using known results and techniques for Petri nets.
+
+]
+
+???
+Will not say much here, we used combination of known techniques.
+
 
 Our proofs rely on:
 
@@ -1229,10 +1231,6 @@ Our proofs rely on:
  - decidability of reachability and home space problems,
  - effective backward analysis for upward closed marking sets, and
  - decidability of weak fairness.
-]
-
-???
-Will not say much here, we used combination of known techniques.
 ---
 name:incremental-d
 layout:true
@@ -1245,7 +1243,7 @@ layout:true
 ### Incremental Design
 ]
 .right-column[
-    We prove that these channel properties can be utilized in an incremental design.
+Channel properties can be utilized in an incremental design.
 ]
 ???
 We now have a set of channel properties.
@@ -1286,21 +1284,45 @@ template:incremental-d
 ]
 .result[
 #Result
-Let $\pnN$ and $\M$ be two composable AIOPNs with shared actions
-$\Sigma\_\pnN \cap \Sigma\_\M$
-and let  $P$ be an arbitrary channel property but wholly emptying.
+Let $\pnN$ and $\M$ be two AIOPNs with shared actions,
+and let $P$ be an arbitrary channel property but wholly emptying.
 
-
-If both $\pnN$ and $\M$ have property $P$ and if $\pnN \oplus\_{pn} \M$
+If both $\pnN$ and $\M$ have property $P$ and if $\pnN \M$
 has property $P$ with respect to the new channels $\Sigma\_\pnN \cap \Sigma\_\M$, then $\pnN \oplus\_{pn} \M$ has property $P$.
 ]
 ]
 ???
 We have proven this holds for all properties.
 ---
+name: last
+layout:false
+class: inverse, sum
+.modal[
+# Modal 
+## system specifications
+
+- Boolean MTS
+- Parametric MTS
+- Modal refinement 
+- Logic for PMTS
+- Time and cost
+]
+
+.component[
+# *Component-based* 
+##system specifications
+
+- Asynchronous I/O Petri nets
+- Asynchronous composition
+- Channel properties
+- Incremental Design
+- Decidability 
+]
+
+---
 name: last-page
 template: inverse
-## But what about the modalities, did we lose them?
+## Are you going to put all this together?
 ???
 Good question, we will now put it all togehter.
 ---
@@ -1309,8 +1331,6 @@ layout:false
 ### All together
 ]
 .right-column[
-Until now we been focused on two different formal models. We will now put it all together, and add some ingredients to reach our goal.
-
 Our goal is to have a formalism that support:
 
 - Infinite state systems → Petri nets
@@ -1329,7 +1349,7 @@ Our goal is to have a formalism that support:
 ]
 
 ???
-This is the goal!
+Until now we been focused on two different formal models. We will now put it all together, and add some ingredients to reach our goal.
 ---
 name:maiopn
 layout:false
@@ -1338,13 +1358,13 @@ layout:false
 ### Modal AIOPNs
 ]
 .right-column[
-We start by adding modalities to our Asynchronous I/O Petri Nets.
-This is done simply by having may and must transitions
+Adding modalities to our Asynchronous I/O Petri Nets 
+is done simply by having may and must transitions
 &nbsp;
 
-.center[
-    <img src="images/component-tikz-11.png" alt="" style="width:200px">
-]
+&nbsp;
+
+<img src="images/component-tikz-11.png" alt="" style="width:230px;position:absolute;top:290px">
 ]
 ???
 - Adding modalities straigh forward. As previously done.
@@ -1353,15 +1373,22 @@ This is done simply by having may and must transitions
 This is an interface of simple web service
 must take request, and must be able to response, or it may send Denied.
 ---
-template:maiopn
-.right-column-cont[
-
+layout:false
+.left-column[
+### All together
+### Modal AIOPNs
+]
+.right-column[
+Adding modalities to our Asynchronous I/O Petri Nets 
+is done simply by having may and must transitions
 &nbsp;
+
 We would like this to be a correct refinement.
 
-.center[
-    <img src="images/component-tikz-12.png" alt="" style="width:400px">
-]
+
+<img src="images/component-tikz-11.png" alt="" style="width:230px;position:absolute;top:290px">
+<img src="images/component-tikz-12.png" alt="" style="width:350px;position:relative;left:250px">
+
 ]
 ???
 We would like to refine a component interface by a composition of components.
@@ -1378,12 +1405,10 @@ layout:false
 ### Hiding
 ]
 .right-column[
-We need to encapsulate communication on internal channels. We do this by a hiding step.
-
-&nbsp;
+Hiding operation:
 .center[
-    <div style="width:530px;margin-left:50px;"><img src="images/component-tikz-12.png" alt="" style="width:210px;margin-right:10px;float:left;">
-    <div style="float:left; line-height: 150px;height: 150px;widht:10px"> Hiding →  </div>    <img src="images/component-tikz-13.png" alt="" style="float:left;width:200px;margin-left:20px;"></div>
+    <div style="width:603px"><img src="images/component-tikz-12.png" alt="" style="width:270px;margin-right:10px;float:left;">
+    <div style="float:left; line-height: 150px;height: 150px;widht:10px"> →  </div>    <img src="images/component-tikz-13.png" alt="" style="float:left;width:270px;margin-left:20px;"></div>
 ]
 ]
 ???
@@ -1398,20 +1423,20 @@ layout:false
 ### Weak Modal refinement
 ]
 .right-column[
-We need to encapsulate communication on internal channels. We do this by a hiding step.
-
-&nbsp;
+Hiding operation:
 .center[
-    <div style="width:530px;margin-left:50px;"><img src="images/component-tikz-12.png" alt="" style="width:210px;margin-right:10px;float:left;">
-    <div style="float:left; line-height: 150px;height: 150px;widht:20px"> Hiding →  </div>    <img src="images/component-tikz-13.png" alt="" style="float:left;width:200px;margin-left:20px;"></div>
+    <div style="width:603px"><img src="images/component-tikz-12.png" alt="" style="width:270px;margin-right:10px;float:left;">
+    <div style="float:left; line-height: 150px;height: 150px;widht:10px"> →  </div>    <img src="images/component-tikz-13.png" alt="" style="float:left;width:270px;margin-left:20px;"></div>
 ]
 ]
-.right-column[
-We now define a **weak modal refinement** that allow refinements to be *observational*.
+.right-column-cont[
+<div style="height: 15px;">
+</div>
+**Weak modal refinement** allow refinements to be *observational*.
 .center[
-<div style="width:530px;margin-left:50px;">
-<img src="images/component-tikz-11.png" alt="" style="width:210px;margin-right:10px;float:left;">
-    <div style="float:left; line-height: 150px;height: 150px;widht:20px">$\Large \geq^*$ </div>    <img src="images/component-tikz-13.png" alt="" style="float:left;width:200px;margin-left:20px;">
+<div style="width:603px;">
+<img src="images/component-tikz-11.png" alt="" style="width:210px;margin-right:30px;float:left;margin-left:20px;margin-top: 35px;">
+    <div style="float:left; line-height: 220px;height: 150px;widht:20px">$\Large \geq^*$ </div>    <img src="images/component-tikz-13.png" alt="" style="float:right;width:270px;margin-left:20px;">
 </div>
 ]
 ]
@@ -1432,9 +1457,10 @@ layout:false
 ### Channel Properties
 ]
 .right-column[
-In order to adapt the channel properties we defined earlier we need to take the modalities and internal actions into account.
+Channel properties must take modalities and internal actions into account.
+<div style="height: 25px;">
+</div>
 
-&nbsp;
 .definition[
 #Definition
 A Modal AIOPN is *Consuming* if there are some messages on a channel $c$, then we **must** be able to autonomously reach a marking where $\xrightarrow{~^\rhd c}$.
@@ -1461,9 +1487,9 @@ layout:false
 ### Channel Properties
 ]
 .right-column[
-In order to adapt the channel properties we defined earlier we need to take the modalities and internal actions into account.
-
-&nbsp;
+Channel properties must take modalities and internal actions into account.
+<div style="height: 25px;">
+</div>
 .definition[
 #Definition
 A Modal AIOPN is *Necessarily Consuming* if there are some messages on a channel $c$, then on all **observationally weakly fair runs** we must perform a $\xrightarrow{~^\rhd c}$.
@@ -1519,11 +1545,43 @@ Summarize:
 - prove that properties are preserved by hiding, composition  and refinement
 - Refinement is preserved by composition
 ---
-name: last-page
-template: inverse
-## That's all folks!
+name: last
+layout:false
+class: inverse, sum
+.modal[
+# Modal 
+## system specifications
 
-Slideshow created using [remark](http://github.com/gnab/remark).
+- Boolean MTS
+- Parametric MTS
+- Modal refinement 
+- Logic for PMTS
+- Time and cost
+]
+
+.component[
+# Component-based
+##system specifications
+
+- Asynchronous I/O Petri nets
+- Asynchronous composition
+- Channel properties
+- Incremental Design
+- Decidability 
+]
+
+
+.all[
+#*Modal and Component-based*
+##system specifications
+
+- Modal asynchronous I/O Petri nets
+- Hiding
+- Modal refinement
+- Channel Properties
+- Incremental Design
+
+]
 </textarea>
 <script src="remark-0.5.9.min.js" type="text/javascript"></script>
 <script type="text/javascript"
@@ -1531,7 +1589,7 @@ src="MathJax.js?config=TeX-AMS-MML_HTMLorMML&delayStartupUntil=configured"></scr
 <script type="text/javascript" src="jquery.min.js"></script>
 
 <script type="text/javascript">
-var hljs = remark.highlighter.engine;
+// var hljs = remark.highlighter.engine;
 </script>
 <script type="text/javascript">
 var slideshow = remark.create({

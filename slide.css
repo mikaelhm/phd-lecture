@@ -7,14 +7,14 @@
 @import url(tinos.css);
 body {
 font-family: 'Tinos';
-font-size: 20px;
+font-size: 25px;
 }
 h1, h2, h3, h4 {
 font-family: 'Yanone Kaffeesatz';
 font-weight: 400;
 margin-bottom: 0;
 }
-h1 { font-size: 4em; }
+h1 { font-size: 3em; }
 h2 { font-size: 2.2em; }
 h3 { font-size: 1.75em; }
 h4 { font-size: 1.6em;}
@@ -41,7 +41,7 @@ width:500px;
 }
 
 .illustration-half img {
-  width: 295px;
+  width: 290px;
 }
 
 .cost{
@@ -53,7 +53,7 @@ width:500px;
 
 .cost-img{
 float: left;
-width: 200px;
+width: 250px;
 clear: both;
 }
 .cost-img img{
@@ -108,7 +108,9 @@ line-height: 0.8em;
 .inverse h1 em {
   color: #BF79DB;
 }
-
+.inverse .remark-slide-number{
+color: #272822;
+}
 
 /* Slide-specific styling */
 #slide-inverse .footnote {
@@ -210,7 +212,7 @@ float: left;
 }
 
 .left-column h3{
-  font-size: 1.6em;
+  font-size: 1.295em;
 }
 .right-column, .right-column-cont{
 width: 75%;
@@ -218,7 +220,7 @@ float: right;
 }
 
 .right-column{
-  padding-top: 2em;
+  padding-top: 1.5em;
 }
 
 .right-column .slide-title{
@@ -257,7 +259,7 @@ font-family: Yanone Kaffeesatz;
   height: 80px;
 }
 .car-wash-imp img:nth-child(2){
-  height: 140px;
+  height: 131px;
 }
 
 .car-wash-imp img:nth-child(3){
@@ -283,9 +285,11 @@ font-family: Yanone Kaffeesatz;
   -moz-border-radius: 5px;
   -web-border-radius: 5px;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 25px;
 }
-
+.result{
+  margin-top:10px;
+}
 .definition h1{
   margin-top: 0px;
   color: #A6E22E;
@@ -314,7 +318,7 @@ font-family: Yanone Kaffeesatz;
 }
 
 .incremental img{
-  width: 550px;
+  width: 420px;
 }
 
 code.has-jax {
@@ -322,4 +326,54 @@ code.has-jax {
   font-size: 100%;
   background: inherit;
   border: inherit;
+}
+
+.sum {
+  padding: 0 0 0 0;
+}
+.sum div{
+  height: 40%;
+  font-size: 1.00em;
+}
+.sum h1{
+  font-size: 2.1em;
+  text-align: center;
+}
+.sum h2{
+  font-size: 1.4em;
+  margin-top:10px;
+  text-align: center;
+}
+
+.sum h1 em{
+  color: #BF79DB;
+font-style: normal;
+}
+
+.modal, .component {
+  width: 350;
+  position: relative;
+  top:-70px;
+}
+
+.modal {
+width: 350px;
+float: left;
+}
+.component {
+    width: 350px;
+
+  float:right;
+}
+.all {
+  float:left;
+  margin-left: 10px;
+  margin-top: -30px;
+  /*width: 609px*/
+  width: 100%;
+  text-align: left;
+}
+.all ul{
+margin-left: 200px;
+width: 500px;
 }
