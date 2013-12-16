@@ -98,7 +98,7 @@ padding: 1em 2em;
 }
 .inverse {
 background: #272822;
-color: #777872;
+color: #DEDEDE;
 text-shadow: 0 0 20px #333;
 }
 .inverse h1, .inverse h2 {
@@ -278,7 +278,7 @@ font-family: Yanone Kaffeesatz;
 }
 
 .definition,.result{
-  color: #DDD;
+  color: #DEDEDE;
   display: block;
   padding: 0.5em;
   background: #272822;
@@ -306,6 +306,7 @@ font-family: Yanone Kaffeesatz;
   margin-top: 0px;
   color: #F92672;
   font-size: 1.4em;
+  margin-bottom: 0px;
 }
 
 .result em{
@@ -315,6 +316,10 @@ font-family: Yanone Kaffeesatz;
 .trace{
   line-height: 40px;
   height: 30px;
+}
+
+.result p, .definiton p{
+margin: 10px 0px;
 }
 
 .incremental img{

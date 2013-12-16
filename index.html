@@ -450,6 +450,7 @@ template:ots-ex
 ]
 ]
 ???
+# POSITIVE BOOLEAN
 Unfortunately this did not help us.
 
 As expressive as DMTS
@@ -544,13 +545,10 @@ a tuple $(S,T,P,\Phi)$ where
 - $P$ is a finite set of parameters, and
 - $\Phi : S \to \mathcal B((\Sigma \times S) \cup P)$ is a satisfiable **obligation function** over the atomic propositions containing
 outgoing transitions and parameters.
-
-We implicitly assume that whenever $(a,t) \in \Phi(s)$ then
-$(s,a,t) \in T$.
 ]
 &nbsp;
 
-Note: MTS, DMTS, OTS and BMTS are all subclases of PMTS.
+Note: MTS, DMTS, OTS and BMTS are all sub-clases of PMTS.
 ]
 
 ???
@@ -700,7 +698,7 @@ layout:false
 ### Time and Cost
 ]
 .right-column[
-Time and cost quantities are need to reason about it.
+Time and cost quantities are needed to reason about it.
 
  - Stepwise refineable **time duration intervals** on transitions.
 
@@ -806,7 +804,7 @@ Implementation cost and running cost:
   ![x](images/tikz-20.png)
 ]
 .cost[
-Investment Cost $= 50$
+Investment Cost $= 100$
 
 Running Cost $= \frac{2 \cdot 10 + 2\cdot 10}{2+2} = 10$
 ]
@@ -837,7 +835,7 @@ layout:false
 .right-column[
 .definition[
 # Decision Problem
-Given an BMTS with durations specification $S$,
+Given a BMTS with durations specification $S$,
 a dual-price scheme, and a budget:
 
 - $\mathtt{max\_{investment}}$
@@ -851,7 +849,7 @@ does there exist an implementation $I \leq S$ such that
 
 .result[
 # Result
-We prove that the decision problem is an NP-complete problem.
+For a fixed number of hardware and positive obligation functions,his gives us a pseudo polynomial algorithm.
 ]
 ]
 ???
@@ -940,8 +938,12 @@ These two communicate over msg
 ---
 template:composition
 .right-column-cont[
-Synchronous composition:<br>
-<img src="images/component-tikz-2.png" alt="Drawing" style="width: 160px;margin-right: 40px;margin-left:20px;margin-top: 30px;"/>
+Synchronous: 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+<img src="images/component-tikz-2.png" alt="Drawing" style="width: 160px;margin-right: 36px;margin-left:10px;margin-top: 55px;"/>
 ]
 ???
 in Sync, agrement when communication
@@ -1009,6 +1011,8 @@ Only considered for finite systems.
 ---
 template: inverse
 ## So did you go infinite, and how?
+???
+Yes, we use petri nets
 ---
 name:petri
 layout:true
@@ -1118,7 +1122,6 @@ Two primitive components before composition:
 ]
 
 Their underlying state space:
-
 .center[
 <img src="images/component-tikz-0.png" alt="Drawing" style="width: 300px"/>
 ]
@@ -1141,9 +1144,8 @@ Two primitive components *after* composition:
 ]
 
 Its underlying state space:
-
 .center[
-<img src="images/component-tikz-3.png" alt="Drawing" style="width: 500px"/>
+<img src="images/component-tikz-3.png" alt="Drawing" style="width: 500px;margin-top: -20px;"/>
 ]
 
 ]
@@ -1287,8 +1289,8 @@ template:incremental-d
 Let $\pnN$ and $\M$ be two AIOPNs with shared actions,
 and let $P$ be an arbitrary channel property but wholly emptying.
 
-If both $\pnN$ and $\M$ have property $P$ and if $\pnN \M$
-has property $P$ with respect to the new channels $\Sigma\_\pnN \cap \Sigma\_\M$, then $\pnN \oplus\_{pn} \M$ has property $P$.
+If both $\pnN$ and $\M$ have property $P$ and if $\pnN \oplus \M$
+has property $P$ with respect to the new channels $\Sigma\_\pnN \cap \Sigma\_\M$, then $\pnN \oplus \M$ has property $P$.
 ]
 ]
 ???
@@ -1579,7 +1581,7 @@ class: inverse, sum
 - Modal asynchronous I/O Petri nets
 - Asynchronous composition
 - Hiding
-- Modal refinement
+- Weak modal refinement
 - Channel properties
 - Incremental design
 ]
